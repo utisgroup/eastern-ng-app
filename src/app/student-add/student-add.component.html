@@ -1,0 +1,139 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-header text-info font-weight-bold">
+            Add Student...
+        </div>
+        <div class="card-body">
+            <form [formGroup]="studentForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control w-100" required formControlName="id" name="id"
+                                placeholder="Student ID" [readOnly]="isEdit">
+
+                        <!-- First Name Validation  Start -->
+                        <div *ngIf="isSubmitted && !studentForm.controls['id'].valid">
+                            <span *ngIf="studentForm.controls['id'].hasError('required')" class="text-danger">
+                                ID is required
+                            </span>
+                        </div>
+                        <!-- End First Name Valiation End -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control w-100" required formControlName="name" name="name"
+                                placeholder="Name">
+
+                        <!-- First Name Validation  Start -->
+                        <div *ngIf="isSubmitted && !studentForm.controls['name'].valid">
+                            <span *ngIf="studentForm.controls['name'].hasError('required')" class="text-danger">
+                                Name is required
+                            </span>
+                        </div>
+                        <!-- End First Name Valiation End -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="number" minlength="10" maxlength="10" required class="form-control w-100"
+                                formControlName="mobile" name="mobile" placeholder="Mobile">
+                            <!-- Mobile form field start -->
+                            <div *ngIf="isSubmitted && !studentForm.controls['mobile'].valid">
+                                <span *ngIf="studentForm.controls['mobile'].hasError('required')" class="text-danger">
+                                    Mobile is required
+                                </span>
+                                <span *ngIf="studentForm.controls['mobile'].hasError('pattern')" class="text-danger">
+                                    Please enter valid mobile
+                                </span>
+                            </div>
+                            <!-- Mobile form field end -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control w-100" required formControlName="city" name="city"
+                                placeholder="City">
+
+                            <!-- City Name Validation  Start -->
+                            <div *ngIf="isSubmitted && !studentForm.controls['city'].valid">
+                                <span *ngIf="studentForm.controls['city'].hasError('required')" class="text-danger">
+                                    City name is required
+                                </span>
+                            </div>
+                            <!-- End City Name Valiation End -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="number" class="form-control w-100" required formControlName="postal_code"
+                                name="postal_code" placeholder="postal_code">
+                            <div *ngIf="isSubmitted && !studentForm.controls['postal_code'].valid">
+                                <span *ngIf="studentForm.controls['postal_code'].hasError('required')"
+                                    class="text-danger">
+                                    postal code is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea class="form-control" required name="address_line1" id="address_line1" rows="3"
+                                formControlName="address_line1" placeholder="Address line1"></textarea>
+                            <!-- address_line1 Validation  Start -->
+                            <div *ngIf="isSubmitted && !studentForm.controls['address_line1'].valid">
+                                <span *ngIf="studentForm.controls['address_line1'].hasError('required')"
+                                    class="text-danger">
+                                    address_line1 is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <textarea class="form-control" required name="address_line2" id="address_line2" rows="3"
+                                formControlName="address_line2" placeholder="Address line2"></textarea>
+                            <!-- address_line1 Validation  Start -->
+                            <div *ngIf="isSubmitted && !studentForm.controls['address_line1'].valid">
+                                <span *ngIf="studentForm.controls['address_line1'].hasError('required')"
+                                    class="text-danger">
+                                    address_line1 is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-outline-primary" 
+                data-toggle="tooltip" 
+                data-placement="top" 
+                title="Add New Student" 
+                [disabled]="studentForm.invalid" 
+                type="submit" (click)="add()" 
+                *ngIf="!isEdit">Add Student</button>
+                <button class="btn btn-outline-info"
+                 (click)="edit()" *ngIf="isEdit"
+                 data-toggle="tooltip" 
+                data-placement="top" 
+                title="Edit Student" 
+                [disabled]="studentForm.invalid">Edit</button>
+                <button class="btn btn-outline-warning m-2" 
+                (click)="resetForm()"
+                 *ngIf="!isEdit"
+                 data-toggle="tooltip" 
+                 data-placement="top" 
+                 title="Reset Student" >Reset</button>
+            </form>
+        </div>
+    </div>
+</div>

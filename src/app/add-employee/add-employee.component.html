@@ -1,0 +1,105 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="text-center mt-2">
+        <h2 class="text-info font-weight-bold">Add Employee Form!!</h2>
+    </div>
+    <div class="card mt-3">
+        <div class="card-body">
+            <form [formGroup]="employeeForm">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="name">Name</label>
+                    <input type="text" formControlName="name" class="form-control" id="name" required
+                      placeholder="Enter Name">
+                    <!-- First Name Validation  Start -->
+                    <div *ngIf="isSubmitted && !employeeForm.controls['name'].valid">
+                      <span *ngIf="employeeForm.controls['name'].hasError('required')"
+                        class="text-danger">
+                        Name is required
+                      </span>
+                    </div>
+                    <!-- End First Name Valiation End -->
+                  </div>
+                    <!-- Mobile form field start -->
+                    <div class="form-group col-md-6">
+                      <label for="mobile">Mobile Number</label>
+                      <input type="text" class="form-control" minlength="10" maxlength="10" formControlName="mobile"
+                        id="mobile" required placeholder="Enter Mobile Number">
+                      <div *ngIf="isSubmitted && !employeeForm.controls['mobile'].valid">
+                        <span *ngIf="employeeForm.controls['mobile'].hasError('required')"
+                          class="text-danger">
+                          Mobile is required
+                        </span>
+                        <span *ngIf="employeeForm.controls['mobile'].hasError('pattern')"
+                          class="text-danger">
+                          Please enter valid mobile
+                        </span>
+                      </div>
+                    </div>
+                    <!-- Mobile form field end -->
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="city">City</label>
+                      <input type="text" formControlName="city" class="form-control" id="city" required
+                        placeholder="Enter City Name">
+                      <!-- City Name Validation  Start -->
+                      <div *ngIf="isSubmitted && !employeeForm.controls['city'].valid">
+                        <span *ngIf="employeeForm.controls['city'].hasError('required')"
+                          class="text-danger">
+                          City name is required
+                        </span>
+                      </div>
+                      <!-- End City Name Valiation End -->
+                    </div>
+                      <!-- Postal Code form field start -->
+                      <div class="form-group col-md-6">
+                        <label for="postal_code">Postal Code</label>
+                        <input type="text" class="form-control" minlength="6" formControlName="postal_code"
+                          id="postal_code" required placeholder="Enter Postal Code">
+                        <div *ngIf="isSubmitted && !employeeForm.controls['postal_code'].valid">
+                          <span *ngIf="employeeForm.controls['postal_code'].hasError('required')"
+                            class="text-danger">
+                            postal code is required
+                          </span> 
+                        </div>
+                      </div>
+                      <!-- postal_code form field end -->
+                  </div>
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="address_line1">Address Line1</label>
+                            <textarea class="form-control" name="address_line1" formControlName="address_line1" id="address_line1" rows="3"></textarea>
+                          <!-- address_line1 Validation  Start -->
+                          <div *ngIf="isSubmitted && !employeeForm.controls['address_line1'].valid">
+                            <span *ngIf="employeeForm.controls['address_line1'].hasError('required')"
+                              class="text-danger">
+                              address_line1 is required
+                            </span>
+                          </div>
+                        </div> 
+                      </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="address_line1">Address Line2</label>
+                          <textarea class="form-control" name="address_line2" formControlName="address_line2" id="address_line2" rows="3"></textarea>
+                          <!-- address_line1 Validation  Start -->
+                          <div *ngIf="isSubmitted && !employeeForm.controls['address_line1'].valid">
+                            <span *ngIf="employeeForm.controls['address_line1'].hasError('required')"
+                              class="text-danger">
+                              address_line1 is required
+                            </span>
+                          </div>
+                        </div> 
+                      </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" (click)="onAddEmployeeSubmit()" class="btn btn-outline-info">Submit</button>
+                </div>
+              </form>
+        </div>
+    </div>
+</div>

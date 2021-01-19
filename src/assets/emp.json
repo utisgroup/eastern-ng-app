@@ -1,0 +1,38 @@
+[
+    {
+        "id": 101,
+        "name": "Sammer",
+        "mobile":8840594837,
+        "city": "Pune",
+        "postal_code": 43300,
+        "address_line1": "street no 9 pune",
+        "address_line2": "New york city usa"
+    },
+    {
+        "id": 101,
+        "name": "John",
+        "mobile":8840594837,
+        "city": "New York City",
+        "postal_code": 443300,
+        "address_line1": "street no 9 new york city",
+        "address_line2": "Washington DC"
+    },
+    {
+        "id": 102,
+        "name": "David",
+        "mobile":9040594837,
+        "city": "Cap Town",
+        "postal_code": 56300,
+        "address_line1": "Cap Town lake city",
+        "address_line2": "Old City street, House no 190"
+    },
+    {
+        "id": 103,
+        "name": "Shyam",
+        "mobile":7840594837,
+        "city": "Bhopal",
+        "postal_code": 33300,
+        "address_line1": "Arera Colony Bhopal",
+        "address_line2": "12 no market new bhopal"
+    }
+]

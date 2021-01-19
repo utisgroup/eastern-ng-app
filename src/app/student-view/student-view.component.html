@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="card text-center">
+    <div class="card-body">
+        <div *ngIf="student">
+            <p>Id: {{student.id}}</p>
+            <p>Name: {{student.name}}</p>
+            <p>Mobile: {{student.mobile}}</p>
+            <p>City: {{student.city}}</p>
+
+            <p>Postal: {{student.postal_code}}</p>
+            <p>Address Line2: {{student.address_line1}}</p>
+            <p>Address Line2: {{student.address_line2}}</p>
+            <a class="btn btn-outline-primary" [routerLink]="['/student-add', student.id]">Edit</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="form-group">
+                    <input class="form-control" [(ngModel)]="searchEmployee" type="text" placeholder="Search filter...">
+            </div>
+            <div class="my-3">
+              <button class="btn btn-success" (click)="onChangeRoute()">ADD Employee</button>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address_line1</th>
+                    <th scope="col">Address_line2</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Postal Code</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let emp of empDataArr | filter: searchEmployee ;let i=index;">
+                    <th scope="row">{{ emp.id }}</th>
+                    <td>{{ emp.name }}</td>
+                    <td>{{ emp.mobile }}</td>
+                    <td>{{ emp.address_line1 }}</td>
+                    <td>{{ emp.address_line2 }}</td>
+                    <td>{{ emp.city }}</td>
+                    <td>{{ emp.postal_code }}</td>
+                    <td> 
+                        <i class="fa edit-btn" (click)="editEmployeeByID(emp)">&#xf044;</i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
